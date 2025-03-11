@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --yellow: #f89b2e;
+  --purple: #37366a;
+  --dark-purple: #20223d;
+  --white: #fffeff;
+  --red: #eb443b;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+}

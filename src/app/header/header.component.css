@@ -1,0 +1,20 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 4rem;
+  background-color: var(--purple);
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: 2rem;
+}
+
+header > div > div > h1 {
+  font-size: 2.5rem;
+}
