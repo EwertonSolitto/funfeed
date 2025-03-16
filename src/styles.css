@@ -4,6 +4,8 @@
   --dark-purple: #20223d;
   --white: #fffeff;
   --red: #eb443b;
+
+  --desktop-max-width: 80rem
 }
 
 * {
