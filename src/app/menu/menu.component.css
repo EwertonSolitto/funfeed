@@ -1,0 +1,75 @@
+section.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--desktop-max-width);
+  padding-block: 1rem
+}
+
+section.menu > div.search {
+  display: flex;
+  height: 2.25rem;
+}
+
+section.menu > div.search > label.visually-hidden {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+section.menu > div.search > input {
+  background-color: var(--dark-purple);
+  color: var(--white);
+  padding-inline: 1rem;
+  font-weight: 600;
+  border-radius: 2rem 0 0 2rem;
+  width: 14rem;
+}
+
+section.menu > div.search > input::placeholder {
+  color: var(--white);
+  opacity: 50%;
+}
+
+section.menu > div.search > input:focus {
+  border: 1px var(--yellow) solid;
+  outline: var(--yellow);
+}
+
+section.menu > div.search > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  background-color: var(--button-purple);
+  cursor: pointer;
+  border-radius: 0 2rem 2rem 0;
+  transition: filter 300ms;
+}
+
+section.menu > div.search > button:hover {
+  filter: brightness(110%);
+  transition: filter 300ms;
+}
+
+section.menu > div.search > button > .search-icon {
+  color: var(--yellow);
+}
+
+section.menu > button {
+  background-color: var(--yellow);
+  color: var(--dark-purple);
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  height: 2rem;
+  padding-inline: 1rem;
+}
