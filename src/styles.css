@@ -1,5 +1,6 @@
 :root {
   --yellow: #f89b2e;
+  --light-yellow: #FBC688;
   --purple: #37366a;
   --button-purple: #2A2D50;
   --dark-purple: #20223d;
@@ -13,10 +14,13 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-html, body { height: 100%; }
+html, body { 
+  height: 100%;
+  overflow-x: hidden; 
+}
 
 a {
   text-decoration: none;
@@ -28,8 +32,14 @@ button, input {
   background-color: transparent;
 }
 
+ul, ol, li {
+  list-style: none;
+  padding: 0;
+}
+
 section {
   margin-inline: var(--desktop-section-margin);
+  max-width: var(--desktop-max-width);
 }
 
 @media (min-width: 1360px) {
