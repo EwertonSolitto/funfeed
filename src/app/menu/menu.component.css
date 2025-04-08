@@ -3,7 +3,7 @@ section.menu {
   align-items: center;
   justify-content: space-between;
   max-width: var(--desktop-max-width);
-  padding-block: 1rem
+  padding-block: 2rem
 }
 
 section.menu > div.search {

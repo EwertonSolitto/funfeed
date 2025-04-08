@@ -11,8 +11,6 @@ header > div {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: var(--desktop-max-width);
-  margin-inline: var(--desktop-section-margin);
 }
 
 header > div > div > h1 {
