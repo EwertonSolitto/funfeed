@@ -64,7 +64,7 @@ section.menu > div.search > button > .search-icon {
   color: var(--yellow);
 }
 
-section.menu > button {
+section.menu > a {
   background-color: var(--yellow);
   color: var(--dark-purple);
   font-size: 1.25rem;
@@ -72,4 +72,7 @@ section.menu > button {
   border-radius: 2rem;
   height: 2rem;
   padding-inline: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
