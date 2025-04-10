@@ -75,4 +75,10 @@ section.menu > a {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 300ms background-color;
+}
+
+section.menu > a:is(:focus, :hover) {
+  background-color: var(--orange);
+  transition: 300ms background-color;
 }

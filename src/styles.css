@@ -1,10 +1,12 @@
 :root {
   --yellow: #f89b2e;
   --light-yellow: #FBC688;
+  --orange: #C66C06;
   --purple: #37366a;
   --button-purple: #2A2D50;
   --dark-purple: #20223d;
   --white: #fffeff;
+  --gray: #9A989A;
   --red: #eb443b;
 
   --desktop-max-width: 80rem;
@@ -27,9 +29,14 @@ a {
   color: var(--white);
 }
 
-button, input {
+button, input, textarea {
   border: 0;
   background-color: transparent;
+  resize: none;
+}
+
+:is(input, textarea)::placeholder {
+  color: var(--gray);
 }
 
 ul, ol, li {

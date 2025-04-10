@@ -1,4 +1,74 @@
 <div>
   <app-header></app-header>
+
+  <section>
+    <h2><span>Create</span> Feed</h2>
+
+    <form action="">
+      <div class="input-container">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" placeholder="What's the title?">
+      </div>
+
+      <div class="input-container">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" placeholder="Make a nice description."></textarea>
+      </div>
+
+      <div class="results-section">
+        <h3>Results</h3>
+
+        <ol>
+          <li>
+            <label for="result-option-1">Option 1</label>
+            <input type="text" name="result-option-1" id="result-option-1" placeholder="Spider Man">
+          </li>
+          <li>
+            <label for="result-option-2">Option 2</label>
+            <input type="text" name="result-option-2" id="result-option-2" placeholder="Hulk">
+          </li>
+        </ol>
+
+        <button>Add Result</button>
+      </div>
+
+      <div class="quizes-section">
+        <h3>Quizes</h3>
+
+        <div>
+          <ol>
+            <li>
+              <label for="quiz-tile-1">Question 1</label>
+              <input type="text" name="quiz-tile-1" id="quiz-tile-1" placeholder="Which Superpower would you like to have?">
+
+              <ol>
+                <li>
+                  <label for="quiz-1-option-1">Option 1</label>
+                  <input type="text" name="quiz-1-option-1" id="quiz-1-option-1" placeholder="Fly">
+                </li>
+
+                <li>
+                  <label for="quiz-1-option-2">Option 2</label>
+                  <input type="text" name="quiz-1-option-2" id="quiz-1-option-2" placeholder="Super Strong">
+                </li>
+
+                <li>
+                  <label for="quiz-1-option-3">Option 3</label>
+                  <input type="text" name="quiz-1-option-3" id="quiz-1-option-3" placeholder="Invisibility">
+                </li>
+              </ol>
+
+              <button>Add Option</button>
+            </li>
+          </ol>
+        </div>
+
+        <button>Add Quiz</button>
+      </div>
+
+      <button>Create Feed</button>
+    </form>
+  </section>
+
   <app-footer></app-footer>
 </div>
