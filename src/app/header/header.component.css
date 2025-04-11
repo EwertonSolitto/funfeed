@@ -3,8 +3,8 @@ header {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 4rem;
   border-bottom: .25rem var(--yellow) solid;
+  padding-block: 1rem;
 }
 
 header > div {
