@@ -29,7 +29,7 @@ a {
   color: var(--white);
 }
 
-button, input, textarea {
+button, input, textarea, select {
   border: 0;
   background-color: transparent;
   resize: none;
