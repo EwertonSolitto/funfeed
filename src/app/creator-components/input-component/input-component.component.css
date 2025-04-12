@@ -1,0 +1,26 @@
+div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+div > label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+  margin-right: auto;
+}
+
+div > input {
+  font-size: 1.125rem;
+  color: var(--white);
+  width: 55%;
+  padding: 0.5rem;
+  border-bottom: 2px var(--yellow) solid;
+}
+
+div > input:focus {
+  outline: 2px var(--light-yellow) solid;
+  border-radius: 0.25rem;
+}

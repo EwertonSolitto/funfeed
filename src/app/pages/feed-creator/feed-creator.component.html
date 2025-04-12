@@ -20,12 +20,10 @@
 
         <ol>
           <li>
-            <label for="result-option-1">Option 1</label>
-            <input type="text" name="result-option-1" id="result-option-1" placeholder="Spider Man">
+            <app-input-component [props]="resultOptionOne"  />
           </li>
           <li>
-            <label for="result-option-2">Option 2</label>
-            <input type="text" name="result-option-2" id="result-option-2" placeholder="Hulk">
+            <app-input-component [props]="resultOptionTwo"  />
           </li>
         </ol>
 
@@ -38,53 +36,22 @@
         <div>
           <ol>
             <li>
-              <label for="quiz-tile-1">Question 1</label>
-              <input type="text" name="quiz-tile-1" id="quiz-tile-1" placeholder="Which Superpower would you like to have?">
-
+              <app-input-component [props]="questionOne"  />
               <ol>
                 <li>
-                  <div>
-                    <label for="quiz-1-option-1">Option 1</label>
-                    <input type="text" name="quiz-1-option-1" id="quiz-1-option-1" placeholder="Fly">
-                  </div>
-                  <div>
-                    <label for="quiz-1-option-1-select">Select Result</label>
-                    <select name="quiz-1-option-1-select" id="quiz-1-option-1-select">
-                      <option value="none" disabled selected hidden>Select Result</option>
-                      <option value="Spider Man">Spider Man</option>
-                      <option value="Huld">Hulk</option>
-                    </select>
-                  </div>
+                  <app-quiz-option-input-component [props]="quizOptionOne" />
+                  <app-select-component [props]="selectOptionsOne" />
                 </li>
 
                 <li>
-                  <div>
-                    <label for="quiz-1-option-2">Option 2</label>
-                    <input type="text" name="quiz-1-option-2" id="quiz-1-option-2" placeholder="Super Strong">
-                  </div>
-                  <div>
-                    <label for="quiz-1-option-2-select">Select Result</label>
-                    <select name="quiz-1-option-2-select" id="quiz-1-option-2-select">
-                      <option value="none" disabled selected hidden>Select Result</option>
-                      <option value="Spider Man">Spider Man</option>
-                      <option value="Huld">Hulk</option>
-                    </select>
-                  </div>
+                  <app-quiz-option-input-component [props]="quizOptionTwo" />
+                  <app-select-component [props]="selectOptionsTwo" />
                 </li>
 
                 <li>
-                  <div>
-                    <label for="quiz-1-option-3">Option 3</label>
-                    <input type="text" name="quiz-1-option-3" id="quiz-1-option-3" placeholder="Invisibility">
-                  </div>
-                  <div>
-                    <label for="quiz-1-option-3-select">Select Result</label>
-                    <select name="quiz-1-option-3-select" id="quiz-1-option-3-select">
-                      <option value="none" disabled selected hidden>Select Result</option>
-                      <option value="Spider Man">Spider Man</option>
-                      <option value="Huld">Hulk</option>
-                    </select>
-                  </div>
+                  <app-quiz-option-input-component [props]="test" />
+                  <app-select-component [props]="selectOptionsThree" />
+
                   <button type="button" aria-label="close button">
                     <mat-icon aria-label="close icon" fontIcon="close" class="close-icon"></mat-icon>
                   </button>

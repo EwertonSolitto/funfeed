@@ -1,6 +1,5 @@
-:root {
-  --container-title-size: 1.625rem;
-  --container-title-weight: 600;
+app-input-component {
+  width: 100%;
 }
 
 div > section {
@@ -47,10 +46,7 @@ div > section > form > div > h3 {
   margin-bottom: 1rem;
 }
 
-div > section > form > div.input-container > :is(input, textarea),
-div > section > form > div.results-section > ol > li > input,
-div > section > form > div.quizes-section > div > ol > li > input,
-div > section > form > div.quizes-section > div > ol > li > ol > li > div > input {
+div > section > form > div.input-container > :is(input, textarea) {
   font-size: 1.125rem;
   color: var(--white);
   width: 55%;
@@ -58,10 +54,7 @@ div > section > form > div.quizes-section > div > ol > li > ol > li > div > inpu
   border-bottom: 2px var(--yellow) solid;
 }
 
-div > section > form > div.input-container > :is(input, textarea):focus,
-div > section > form > div.results-section > ol > li > input:focus,
-div > section > form > div.quizes-section > div > ol > li > input:focus,
-div > section > form > div.quizes-section > div > ol > li > ol > li > div > input:focus {
+div > section > form > div.input-container > :is(input, textarea):focus {
   outline: 2px var(--light-yellow) solid;
   border-radius: 0.25rem;
 }
@@ -81,21 +74,11 @@ div > section > form > div.quizes-section > div > ol > li > ol {
 }
 
 div > section > form > div.results-section > ol > li,
-div > section > form > div.quizes-section > div > ol > li,
-div > section > form > div.quizes-section > div > ol > li > ol > li > div {
+div > section > form > div.quizes-section > div > ol > li {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 0.75rem;
-}
-
-div > section > form > div.results-section > ol > li > label,
-div > section > form > div.quizes-section > div > ol > li > label,
-div > section > form > div.quizes-section > div > ol > li > ol > li > div > label {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 1rem;
 }
 
 div > section > form > div.quizes-section > div > ol > li > ol > li {
@@ -130,30 +113,14 @@ div > section > form > button:is(:focus, :hover) {
 div > section > form > div.quizes-section > div > ol > li > ol {
   margin-top: 1.5rem;
   margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
   padding-right: 2rem;
-}
-
-div > section > form > div.quizes-section > div > ol > li > ol > li > div > label {
-  font-size: 1.125rem;
-}
-
-div > section > form > div.quizes-section > div > ol > li > ol > li > div > input {
-  width: 25rem;
 }
 
 div > section > form > div.quizes-section > div > ol > li > button {
   margin-top: 0.75rem;
   margin-left: 1.5rem;
   font-size: 0.75rem;
-}
-
-div > section > form > div.quizes-section > div > ol > li > ol > li > div > select {
-  background: var(--yellow);
-  padding: 0.75rem 1rem;
-  border: 0.5px var(--yellow) solid;
-  color: var(--dark-purple);
-  font-size: 0.975rem;
-  border-radius: 1rem;
 }
 
 div > section > form > div.quizes-section > div > ol > li > ol > li > button {
