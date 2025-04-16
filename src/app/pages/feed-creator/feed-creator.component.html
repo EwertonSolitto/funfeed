@@ -7,12 +7,12 @@
     <form action="">
       <div class="input-container">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" placeholder="What's the title?">
+        <input type="text" name="title" id="title" placeholder="What's the title?" [(ngModel)]="formData.title.value"/>
       </div>
 
       <div class="input-container">
         <label for="description">Description</label>
-        <textarea name="description" id="description" placeholder="Make a nice description."></textarea>
+        <textarea name="description" id="description" placeholder="Make a nice description." [(ngModel)]="formData.description.value"></textarea>
       </div>
 
       <div class="results-section">
@@ -20,14 +20,22 @@
 
         <ol>
           <li>
-            <app-input-component [props]="resultOptionOne"  />
+            <app-input-component 
+              [props]="resultOptionOne"  
+              [ngValue]="formData.results[0].value" 
+              (changeValue)="onChangeInput($event, 'results', 0)"
+            />
           </li>
           <li>
-            <app-input-component [props]="resultOptionTwo"  />
+            <app-input-component 
+              [props]="resultOptionTwo"  
+              [ngValue]="formData.results[1].value" 
+              (changeValue)="onChangeInput($event, 'results', 1)"
+            />
           </li>
         </ol>
 
-        <button>Add Result</button>
+        <button type="button">Add Result</button>
       </div>
 
       <div class="quizes-section">
@@ -36,21 +44,49 @@
         <div>
           <ol>
             <li>
-              <app-input-component [props]="questionOne"  />
+              <app-input-component 
+                [props]="questionOne" 
+                [ngValue]="formData.quizes[0].title.value" 
+                (changeValue)="onChangeInput($event, 'quizes', 0, 'title')"
+              />
               <ol>
                 <li>
-                  <app-quiz-option-input-component [props]="quizOptionOne" />
-                  <app-select-component [props]="selectOptionsOne" />
+                  <app-quiz-option-input-component 
+                    [props]="quizOptionOne" 
+                    [ngValue]="formData.quizes[0].options[0].value"
+                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 0, 'value')"
+                  />
+                  <app-select-component 
+                    [props]="selectOptionsOne" 
+                    [ngValue]="formData.quizes[0].options[0].resultSelected"
+                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 0, 'resultSelected')"
+                  />
                 </li>
 
                 <li>
-                  <app-quiz-option-input-component [props]="quizOptionTwo" />
-                  <app-select-component [props]="selectOptionsTwo" />
+                  <app-quiz-option-input-component 
+                    [props]="quizOptionTwo" 
+                    [ngValue]="formData.quizes[0].options[1].value"
+                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 1, 'value')"
+                  />
+                  <app-select-component 
+                    [props]="selectOptionsTwo" 
+                    [ngValue]="formData.quizes[0].options[1].resultSelected"
+                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 1, 'resultSelected')"
+                  />
                 </li>
 
                 <li>
-                  <app-quiz-option-input-component [props]="test" />
-                  <app-select-component [props]="selectOptionsThree" />
+                  <app-quiz-option-input-component
+                    [props]="test" 
+                    [ngValue]="formData.quizes[0].options[2].value"
+                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 2, 'value')"
+                  />
+                  <app-select-component 
+                    [props]="selectOptionsThree"
+                    [ngValue]="formData.quizes[0].options[2].resultSelected"
+                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 2, 'resultSelected')" 
+                  />
 
                   <button type="button" aria-label="close button">
                     <mat-icon aria-label="close icon" fontIcon="close" class="close-icon"></mat-icon>
@@ -58,15 +94,15 @@
                 </li>
               </ol>
 
-              <button>Add Option</button>
+              <button type="button">Add Option</button>
             </li>
           </ol>
         </div>
 
-        <button>Add Quiz</button>
+        <button type="button">Add Quiz</button>
       </div>
 
-      <button>Create Feed</button>
+      <button type="button" (click)="addNewComponent()">Create Feed</button>
     </form>
   </section>
 

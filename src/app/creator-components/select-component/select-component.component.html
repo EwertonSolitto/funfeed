@@ -1,7 +1,12 @@
 <div>
   <label [for]="props.id">Select Result</label>
-  <select [name]="props.id" [id]="props.id">
-    <option value="none" disabled selected hidden>Select Result</option>
+  <select 
+    [name]="props.id" 
+    [id]="props.id"
+    [(ngModel)]="ngValue" 
+    (change)="onValueChange()" 
+    >
+    <option value="" disabled selected hidden>Select Result</option>
     <option *ngFor="let option of props.options" [value]="option">{{option}}</option>
   </select>
 </div>

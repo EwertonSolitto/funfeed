@@ -1,4 +1,10 @@
 <div>
   <label [for]="props.id">{{props.title}}</label>
-  <input type="text" [name]="props.id" [id]="props.id" [placeholder]="placeholderChecker()">
+  <input 
+    type="text" 
+    [name]="props.id" 
+    [id]="props.id" 
+    [placeholder]="placeholderChecker()"
+    [(ngModel)]="ngValue" (change)="onValueChange()" 
+  />
 </div>
