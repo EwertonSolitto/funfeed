@@ -12,7 +12,7 @@
 
       <div class="input-container">
         <label for="description">Description</label>
-        <textarea name="description" id="description" placeholder="Make a nice description." [(ngModel)]="formData.description.value"></textarea>
+        <textarea name="description" id="description" placeholder="Write a nice description." [(ngModel)]="formData.description.value"></textarea>
       </div>
 
       <div class="results-section">
@@ -45,58 +45,50 @@
 
         <div>
           <ol>
-            <li>
+            <li *ngFor="let quiz of formData.quizes; index as i">
               <app-input-component 
-                [props]="questionOne" 
-                [ngValue]="formData.quizes[0].title.value" 
-                (changeValue)="onChangeInput($event, 'quizes', 0, 'title')"
-              />
+                [props]="{title: 'Question ' + ( i + 1), id: 'quiz-title-' + (i + 1)}" 
+                [ngValue]="quiz.title.value" 
+                (changeValue)="onChangeInput($event, 'quizes', i, 'title')"
+              >
+                <button 
+                  type="button" 
+                  aria-label="close button" 
+                  (click)="RemoveComponent('quizes', i)"
+                  *ngIf="formData.quizes.length === i + 1 && formData.quizes.length > 1"
+                >
+                  <mat-icon aria-label="close icon" fontIcon="close" class="close-icon"></mat-icon>
+                </button>
+              </app-input-component>
               <ol>
-                <li>
+                <li *ngFor="let option of formData.quizes[i].options; index as j">
                   <app-quiz-option-input-component 
-                    [props]="quizOptionOne" 
-                    [ngValue]="formData.quizes[0].options[0].value"
-                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 0, 'value')"
+                    [props]="{
+                        title: 'Option ' + (j + 1), 
+                        id: 'quiz-' + i +'-option-' + j, 
+                        placeholder: quizesModels[j].placeholder
+                      }" 
+                    [ngValue]="formData.quizes[i].options[j].value"
+                    (changeValue)="onChangeInput($event, 'quizes', i, 'options', j, 'value')"
                   />
                   <app-select-component 
-                    [props]="selectOptionsOne" 
-                    [ngValue]="formData.quizes[0].options[0].resultSelected"
-                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 0, 'resultSelected')"
-                  />
-                </li>
-
-                <li>
-                  <app-quiz-option-input-component 
-                    [props]="quizOptionTwo" 
-                    [ngValue]="formData.quizes[0].options[1].value"
-                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 1, 'value')"
-                  />
-                  <app-select-component 
-                    [props]="selectOptionsTwo" 
-                    [ngValue]="formData.quizes[0].options[1].resultSelected"
-                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 1, 'resultSelected')"
-                  />
-                </li>
-
-                <li>
-                  <app-quiz-option-input-component
-                    [props]="test" 
-                    [ngValue]="formData.quizes[0].options[2].value"
-                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 2, 'value')"
-                  />
-                  <app-select-component 
-                    [props]="selectOptionsThree"
-                    [ngValue]="formData.quizes[0].options[2].resultSelected"
-                    (changeValue)="onChangeInput($event, 'quizes', 0, 'options', 2, 'resultSelected')" 
+                    [props]="{id: 'quiz-' + i + '-option-' + j + '-select', options: getResults()}" 
+                    [ngValue]="formData.quizes[i].options[j].resultSelected"
+                    (changeValue)="onChangeInput($event, 'quizes', i, 'options', j, 'resultSelected')"
                   />
 
-                  <button type="button" aria-label="close button">
+                  <button 
+                    type="button" 
+                    aria-label="close button" 
+                    (click)="RemoveComponent('options', i)"
+                    *ngIf="formData.quizes[i].options.length === j + 1 && formData.quizes[i].options.length > 2"
+                  >
                     <mat-icon aria-label="close icon" fontIcon="close" class="close-icon"></mat-icon>
                   </button>
                 </li>
               </ol>
 
-              <button type="button" (click)="AddComponent('options', 0)">Add Option</button>
+              <button type="button" (click)="AddComponent('options', i)">Add Option</button>
             </li>
           </ol>
         </div>
@@ -104,7 +96,7 @@
         <button type="button" (click)="AddComponent('quizes')">Add Quiz</button>
       </div>
 
-      <button type="button" (click)="addNewComponent()">Create Feed</button>
+      <button type="button" (click)="createFeed()">Create Feed</button>
     </form>
   </section>
 

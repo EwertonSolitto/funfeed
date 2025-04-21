@@ -7,6 +7,11 @@
     (change)="onValueChange()" 
     >
     <option value="" disabled selected hidden>Select Result</option>
-    <option *ngFor="let option of props.options" [value]="option">{{option}}</option>
+    <option 
+      *ngFor="let option of props.options" 
+      [value]="option" 
+      [hidden]="checkBlankValue(option)"
+      [disabled]="checkBlankValue(option)" 
+    >{{option}}</option>
   </select>
 </div>

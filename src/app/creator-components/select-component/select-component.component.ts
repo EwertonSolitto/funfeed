@@ -18,4 +18,11 @@ export class SelectComponent {
   onValueChange(): void {
     this.changeValue.emit(this.ngValue);
   } 
+
+  checkBlankValue(value: string) {
+    if(value.length === 0) {
+      return true
+    }
+    return false
+  }
 }

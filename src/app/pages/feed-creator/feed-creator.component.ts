@@ -8,6 +8,7 @@ import { SelectComponent } from '../../creator-components/select-component/selec
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { resultsModel } from './models/results';
+import { quizesModel } from './models/quizes';
 
 @Component({
   selector: 'app-feed-creator',
@@ -37,26 +38,16 @@ export class FeedCreatorComponent {
         options: [
           { value: '', resultSelected: ''},
           { value: '', resultSelected: ''},
-          { value: '', resultSelected: ''}
         ]
       }
     ]
   }
 
   resultModels = resultsModel
+  quizesModels = quizesModel
 
-  questionOne = {title: 'Question 1', id: 'quiz-title-1'}
-  quizOptionOne = {title: 'Option 1', id: 'quiz-1-option-1', placeholder: 'Fly'}
-  quizOptionTwo = {title: 'Option 2', id: 'quiz-1-option-2', placeholder: 'Super Strength'}
-
-  options = ['Spider Man', 'Hulk']
-  selectOptionsOne = {id: "quiz-1-option-1-select", options: this.options}
-  selectOptionsTwo = {id: "quiz-1-option-2-select", options: this.options}
-  selectOptionsThree = {id: "quiz-1-option-3-select", options: this.options}
-
-  test = {title: 'Option 3', id: 'quiz-1-option-3', placeholder: 'Invisibility'}
-  addNewComponent() {
-    console.log(this.formData)
+  getResults() {
+    return this.formData.results.map(({value}) => value)
   }
 
   onChangeInput(
@@ -95,18 +86,18 @@ export class FeedCreatorComponent {
 
     switch(local) {
       case 'results':
-      if(this.formData.results.length <= 10) {
+      if(this.formData.results.length < 10) {
         this.formData.results.push(resultsModel)
       }  
       break
       case 'quizes':
-        if(this.formData.quizes.length <= 10) {
+        if(this.formData.quizes.length < 10) {
           this.formData.quizes.push(quizesModel)
         }  
         break
       case 'options':
         if(typeof quizIndex === 'number') {
-          if(this.formData.quizes[quizIndex].options.length <= 8) {
+          if(this.formData.quizes[quizIndex].options.length < 8) {
             this.formData.quizes[quizIndex].options.push(optionsModel)
           }  
         }
@@ -132,5 +123,9 @@ export class FeedCreatorComponent {
       default:
         throw Error('Cannot add component')
     }
+  }
+
+  createFeed() {
+    console.log(this.formData)
   }
 }
