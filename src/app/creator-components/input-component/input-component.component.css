@@ -1,10 +1,16 @@
 div {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-div > label {
+div > div.input {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+}
+
+div > div > label {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--white);
@@ -12,15 +18,24 @@ div > label {
   margin-right: auto;
 }
 
-div > input {
+div > div > input {
   font-size: 1.125rem;
   color: var(--white);
-  width: 55%;
   padding: 0.5rem;
   border-bottom: 2px var(--yellow) solid;
 }
 
-div > input:focus {
+div > div > input:focus {
   outline: 2px var(--light-yellow) solid;
   border-radius: 0.25rem;
+}
+
+div > div.close-button-div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+div > div.close-button-div > button {
+  cursor: pointer;
 }

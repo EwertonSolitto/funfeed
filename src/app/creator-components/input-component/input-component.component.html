@@ -1,10 +1,15 @@
 <div>
-  <label [for]="props.id">{{props.title}}</label>
-  <input 
-    type="text" 
-    [name]="props.id" 
-    [id]="props.id" 
-    [placeholder]="placeholderChecker()"
-    [(ngModel)]="ngValue" (change)="onValueChange()" 
-  />
+  <div class="input">
+    <label [for]="props.id">{{props.title}}</label>
+    <input 
+      type="text" 
+      [name]="props.id" 
+      [id]="props.id" 
+      [placeholder]="placeholderChecker()"
+      [(ngModel)]="ngValue" (change)="onValueChange()" 
+    />
+  </div>
+  <div class="close-button-div">
+    <ng-content></ng-content>
+  </div>
 </div>

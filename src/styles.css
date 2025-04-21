@@ -29,6 +29,11 @@ a {
   color: var(--white);
 }
 
+button {
+  padding: 0;
+  cursor: pointer;
+}
+
 button, input, textarea, select {
   border: 0;
   background-color: transparent;

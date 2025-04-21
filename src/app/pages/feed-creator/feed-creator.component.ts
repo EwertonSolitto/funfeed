@@ -6,6 +6,8 @@ import { QuizOptionInputComponent } from '../../creator-components/quiz-option-i
 import { InputComponent } from '../../creator-components/input-component/input-component.component';
 import { SelectComponent } from '../../creator-components/select-component/select-component.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { resultsModel } from './models/results';
 
 @Component({
   selector: 'app-feed-creator',
@@ -16,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     QuizOptionInputComponent, 
     InputComponent, 
     SelectComponent,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   templateUrl: './feed-creator.component.html',
   styleUrl: './feed-creator.component.css'
@@ -40,8 +43,8 @@ export class FeedCreatorComponent {
     ]
   }
 
-  resultOptionOne = {title: 'Option 1', id: 'result-option-1', placeholder: 'Spider Man'}
-  resultOptionTwo = {title: 'Option 2', id: 'result-option-2', placeholder: 'Hulk'}
+  resultModels = resultsModel
+
   questionOne = {title: 'Question 1', id: 'quiz-title-1'}
   quizOptionOne = {title: 'Option 1', id: 'quiz-1-option-1', placeholder: 'Fly'}
   quizOptionTwo = {title: 'Option 2', id: 'quiz-1-option-2', placeholder: 'Super Strength'}
@@ -76,6 +79,58 @@ export class FeedCreatorComponent {
           this.formData[titleName][index].options[quizIndex].resultSelected = newValue
         }
       }
+    }
+  }
+
+  AddComponent(local: 'results' | 'quizes' | 'options', quizIndex?: number) {
+    const resultsModel = { value: '' }
+    const optionsModel = { value: '' , resultSelected: ''}
+    const quizesModel = { 
+      title: resultsModel,
+      options: [
+        optionsModel,
+        optionsModel,
+      ]
+    }
+
+    switch(local) {
+      case 'results':
+      if(this.formData.results.length <= 10) {
+        this.formData.results.push(resultsModel)
+      }  
+      break
+      case 'quizes':
+        if(this.formData.quizes.length <= 10) {
+          this.formData.quizes.push(quizesModel)
+        }  
+        break
+      case 'options':
+        if(typeof quizIndex === 'number') {
+          if(this.formData.quizes[quizIndex].options.length <= 8) {
+            this.formData.quizes[quizIndex].options.push(optionsModel)
+          }  
+        }
+        break
+      default:
+        throw Error('Cannot add component')
+    }
+  }
+
+  RemoveComponent(local: 'results' | 'quizes' | 'options', quizIndex?: number) {
+    switch(local) {
+      case 'results':
+        this.formData.results.pop()
+      break
+      case 'quizes':
+          this.formData.quizes.pop()
+        break
+      case 'options':
+        if(typeof quizIndex === 'number') {
+          this.formData.quizes[quizIndex].options.pop() 
+        }
+        break
+      default:
+        throw Error('Cannot add component')
     }
   }
 }

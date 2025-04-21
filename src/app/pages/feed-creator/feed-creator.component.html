@@ -19,23 +19,25 @@
         <h3>Results</h3>
 
         <ol>
-          <li>
+          <li *ngFor="let result of formData.results; index as i">
             <app-input-component 
-              [props]="resultOptionOne"  
-              [ngValue]="formData.results[0].value" 
-              (changeValue)="onChangeInput($event, 'results', 0)"
-            />
-          </li>
-          <li>
-            <app-input-component 
-              [props]="resultOptionTwo"  
-              [ngValue]="formData.results[1].value" 
-              (changeValue)="onChangeInput($event, 'results', 1)"
-            />
+              [props]="resultModels[i]"  
+              [ngValue]="formData.results[i].value" 
+              (changeValue)="onChangeInput($event, 'results', i)"
+            >
+              <button 
+                type="button" 
+                aria-label="close button" 
+                (click)="RemoveComponent('results')"
+                *ngIf="formData.results.length === i + 1 && formData.results.length > 2"
+              >
+                <mat-icon aria-label="close icon" fontIcon="close" class="close-icon"></mat-icon>
+              </button>
+            </app-input-component>
           </li>
         </ol>
 
-        <button type="button">Add Result</button>
+        <button type="button" (click)="AddComponent('results')">Add Result</button>
       </div>
 
       <div class="quizes-section">
@@ -94,12 +96,12 @@
                 </li>
               </ol>
 
-              <button type="button">Add Option</button>
+              <button type="button" (click)="AddComponent('options', 0)">Add Option</button>
             </li>
           </ol>
         </div>
 
-        <button type="button">Add Quiz</button>
+        <button type="button" (click)="AddComponent('quizes')">Add Quiz</button>
       </div>
 
       <button type="button" (click)="addNewComponent()">Create Feed</button>
