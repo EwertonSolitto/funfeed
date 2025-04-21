@@ -103,6 +103,13 @@ div > section > form > button
   margin-top: 1rem;
 }
 
+div > section > form > div:is(.results-section, .quizes-section) > button:is(:disabled, :disabled :hover),
+div > section > form > div.quizes-section > div > ol > li > button:is(:disabled, :disabled :hover),
+div > section > form > button:is(:disabled, :disabled :hover) {
+  background-color: var(--brown);
+  cursor: default;
+}
+
 div > section > form > div:is(.results-section, .quizes-section) > button:is(:focus, :hover),
 div > section > form > div.quizes-section > div > ol > li > button:is(:focus, :hover),
 div > section > form > button:is(:focus, :hover) {

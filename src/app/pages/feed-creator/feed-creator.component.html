@@ -37,7 +37,11 @@
           </li>
         </ol>
 
-        <button type="button" (click)="AddComponent('results')">Add Result</button>
+        <button 
+          type="button" 
+          (click)="AddComponent('results')" 
+          [disabled]="formData.results.length >= 10"
+        >Add Result</button>
       </div>
 
       <div class="quizes-section">
@@ -88,12 +92,20 @@
                 </li>
               </ol>
 
-              <button type="button" (click)="AddComponent('options', i)">Add Option</button>
+              <button 
+                type="button" 
+                (click)="AddComponent('options', i)" 
+                [disabled]="formData.quizes[i].options.length >= 8"
+              >Add Option</button>
             </li>
           </ol>
         </div>
 
-        <button type="button" (click)="AddComponent('quizes')">Add Quiz</button>
+        <button 
+          type="button" 
+          (click)="AddComponent('quizes')" 
+          [disabled]="formData.quizes.length >= 10"
+        >Add Quiz</button>
       </div>
 
       <button type="button" (click)="createFeed()">Create Feed</button>
