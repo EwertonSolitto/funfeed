@@ -126,6 +126,37 @@ export class FeedCreatorComponent {
   }
 
   createFeed() {
-    console.log(this.formData)
+    if((this.formData.description.value && this.formData.title.value) && this.checkValues()) {
+      console.log(this.formData)
+    }
+  }
+
+  checkValues() {
+    let hasValue = true
+
+    for(let i = 0; i < this.formData.quizes.length; i++) {
+      if(!hasValue) break
+      if(!this.formData.quizes[i].title.value) hasValue = false 
+      for(let j = 0; j < this.formData.quizes[i].options.length; j++) {
+        if(!hasValue) break
+        if(
+            this.formData.quizes[i].options[j].resultSelected === ''
+            || 
+            this.formData.quizes[i].options[j].value === ''
+          ) hasValue = false
+      }
+    }
+
+
+    for(let i = 0; i < this.formData.results.length; i++) {
+      if(!hasValue) break
+      if(!this.formData.results[i].value) hasValue = false
+    }
+
+    if(hasValue) {
+      return true
+    }
+
+    return false
   }
 }
