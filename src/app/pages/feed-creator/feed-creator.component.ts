@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { resultsModel } from './models/results';
 import { quizesModel } from './models/quizes';
+import { FeedDataCacheService } from '../../feed-data-cache.service';
 
 @Component({
   selector: 'app-feed-creator',
@@ -45,6 +46,8 @@ export class FeedCreatorComponent {
 
   resultModels = resultsModel
   quizesModels = quizesModel
+
+  constructor(private feedDataCacheService: FeedDataCacheService) {}
 
   getResults() {
     return this.formData.results.map(({value}) => value)
@@ -126,7 +129,7 @@ export class FeedCreatorComponent {
 
   createFeed() {
     if((this.formData.description.value && this.formData.title.value) && this.checkValues()) {
-      console.log(this.formData)
+      this.feedDataCacheService.addFormData(this.formData)
     }
   }
 
