@@ -80,7 +80,6 @@ export class FeedCreatorComponent {
       title: resultsModel,
       options: [
         optionsModel,
-        optionsModel,
       ]
     }
 

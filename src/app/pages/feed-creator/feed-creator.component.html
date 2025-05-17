@@ -51,7 +51,7 @@
           <ol>
             <li *ngFor="let quiz of formData.quizes; index as i">
               <app-input-component 
-                [props]="{title: 'Question ' + ( i + 1), id: 'quiz-title-' + (i + 1)}" 
+                [props]="{title: 'Question ' + (i + 1), id: 'quiz-title-' + (i + 1)}" 
                 [ngValue]="quiz.title.value" 
                 (changeValue)="onChangeInput($event, 'quizes', i, 'title')"
               >
