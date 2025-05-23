@@ -1,8 +1,7 @@
 <section class="feed-list">
   <ul *ngFor="let feed of cachedFormDataList; index as i">
     <li>
-      <a href="#">
-          <div class="image"></div>
+      <a href="/feed/{i}">
           <div class="content">
             <h2>{{feed.title.value}}</h2>
             <p>{{feed.description.value}}</p>

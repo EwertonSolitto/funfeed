@@ -33,13 +33,6 @@ section.feed-list > ul > li > a:is(:hover, :focus) {
   transition: scale 200ms;
 }
 
-section.feed-list > ul > li > a > div.image {
-  height: 12rem;
-  border-radius: 0.75rem;
-  background-color: var(--dark-purple);
-  width: 30%;
-}
-
 section.feed-list > ul > li > a > div.content {
   display: flex;
   flex-direction: column;
