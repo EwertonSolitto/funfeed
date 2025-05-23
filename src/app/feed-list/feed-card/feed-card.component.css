@@ -1,0 +1,73 @@
+a {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: min(75vw, 60rem);
+  min-height: 8rem;
+  border: 4px var(--yellow) solid;
+  border-radius: 2rem;
+  padding: 1.75rem 1.5rem;
+  background-color: var(--white);
+  color: var(--dark-purple);
+  margin-inline: auto;
+  box-shadow: var(--light-yellow) 8px 8px;
+  transition: scale 200ms;
+}
+
+a:is(:hover, :focus) {
+  scale: 1.025;
+  transition: scale 200ms;
+}
+
+a > div.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+a > div.content > h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+a > div.content > p {
+  font-size: 1.125rem;
+  text-align: justify;
+}
+
+@media (max-width: 728px) {
+  a {
+    min-height: 8rem;
+    border: 3px var(--yellow) solid;
+    padding: 1.5rem 1.25rem;
+    box-shadow: var(--light-yellow) 6px 6px;
+  }
+
+  a > div.content > h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.375rem;
+  }
+  
+  a > div.content > p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  a {
+    min-height: 6rem;
+    padding: 1.25rem 1.125rem;
+    box-shadow: var(--light-yellow) 4px 4px;
+    border-radius: 1.5rem;
+  }
+
+   a > div.content > h2 {
+    font-size: 1.25rem;
+    margin-bottom: .25rem;
+  }
+
+   a > div.content > p {
+    font-size: .875rem;
+  }
+}
