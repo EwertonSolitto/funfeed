@@ -1,0 +1,33 @@
+<div>
+  <app-header></app-header>
+  <section class="feed">
+    <div *ngIf="!isStarted">
+      <h2>{{feed?.title?.value}}</h2>
+      <p>{{feed?.description?.value}}</p>
+      <button (click)="startFeed()">Start</button>
+    </div>
+    
+    <div *ngIf="isStarted">
+      <div *ngIf="!isFinished; else elseBlock">
+        <h2>{{currentQuestion?.title?.value}}</h2>
+        <ul>
+          <li *ngFor="let option of currentQuestion?.options; index as i" (click)="setValue(i)">
+            <input type="radio" (value)="option.resultSelected" id="{{option.value}}-{{i}}" name="question-{{questionCounter}}">
+            <button class="radio" [class.checked]="i === currentValueSelected"></button>
+            <label for="{{option.value}}-{{i}}">{{option.value}}</label>
+          </li>
+        </ul>
+        <div>
+          <button (click)="nextQuestion()" [disabled]="currentValueSelected === null">Next</button> 
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <h2>{{result}}!</h2>
+        <button (click)="resetFeed()">Play again</button>
+        <a href="/">Go back</a>
+      </ng-template>
+    </div>
+
+  </section>
+  <app-footer></app-footer>
+</div>
