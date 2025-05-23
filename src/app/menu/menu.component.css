@@ -82,3 +82,55 @@ section.menu > a:is(:focus, :hover) {
   background-color: var(--orange);
   transition: 300ms background-color;
 }
+
+@media (max-width: 728px) {
+  section.menu {
+    padding-block: 1.5rem;
+  }
+
+  section.menu > div.search {
+    height: 2rem;
+  }
+
+  section.menu > div.search > input {
+    font-size: 0.75rem;
+    padding-inline: 1rem;
+    width: 12rem;
+  }
+
+  section.menu > div.search > button {
+    width: 2.5rem;
+  }
+
+  section.menu > a {
+    font-size: 1rem;
+    height: 2rem;
+    padding-inline: .75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section.menu {
+    padding-block: 1.25rem;
+  }
+
+  section.menu > div.search {
+    height: 1.75rem;
+  }
+
+  section.menu > div.search > input {
+    font-size: 0.625rem;
+    padding-inline: .75rem;
+    width: max(40vw, 7rem);
+  }
+
+  section.menu > div.search > button > mat-icon {
+    transform: scale(0.875);
+  }
+
+  section.menu > a {
+    font-size: 0.875rem;
+    height: 1.75rem;
+    padding-inline: .625rem;
+  }
+}

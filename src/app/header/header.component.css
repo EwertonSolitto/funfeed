@@ -20,3 +20,14 @@ header > div > div > h1 {
 header > div > div > h1 > a > span {
   color: var(--yellow);
 }
+
+@media (max-width: 480px) {
+  header {
+    padding-block: 0.5rem;
+    border-bottom: .125rem var(--yellow) solid;
+  }
+
+  header > div > div > h1 {
+    font-size: 2rem;
+  }
+}

@@ -11,7 +11,9 @@
   --red: #eb443b;
 
   --desktop-max-width: 80rem;
-  --desktop-section-margin: 2rem
+  --desktop-section-margin: 2rem;
+  --tablet-section-margin: 1.5rem;
+  --mobile-section-margin: 1rem
 }
 
 * {
@@ -61,3 +63,15 @@ section, header > div {
   }
 }
 
+@media (max-width: 728px) {
+  section, header > div {
+    margin-inline: var(--tablet-section-margin);
+    max-width: none
+  }
+}
+
+@media (max-width: 480px) {
+  section, header > div {
+    margin-inline: var(--mobile-section-margin);
+  }
+}

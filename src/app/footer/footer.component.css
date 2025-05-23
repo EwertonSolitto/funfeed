@@ -8,3 +8,20 @@ footer {
   border-top: var(--yellow) 4px solid;
   padding-block: 2rem
 }
+
+@media (max-width: 728px) {
+  footer {
+    border-top: var(--yellow) 2px solid;
+    padding-block: 1.5rem
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding-block: 1rem;
+  }
+
+  footer h2 {
+    font-size: 1rem;
+  }
+}

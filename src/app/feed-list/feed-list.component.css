@@ -3,7 +3,8 @@ section.feed-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 6rem;
+  padding-bottom: 4rem;
+  min-height: 90vh;
 }
 
 section.feed-list > ul {
@@ -11,42 +12,19 @@ section.feed-list > ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 2.5rem;
 }
 
-section.feed-list > ul > li > a {
-  display: flex;
-  flex-direction: row;
-  gap: 2.5rem;
-  border: 4px var(--yellow) solid;
-  border-radius: 2rem;
-  padding: 1.75rem 1.5rem;
-  background-color: var(--white);
-  color: var(--dark-purple);
-  margin-inline: 4rem;
-  box-shadow: var(--light-yellow) 8px 8px;
-  transition: scale 200ms;
+@media (max-width: 728px) {
+  section.feed-list > ul {
+    gap: 2rem;
+  }
 }
 
-section.feed-list > ul > li > a:is(:hover, :focus) {
-  scale: 1.025;
-  transition: scale 200ms;
-}
-
-section.feed-list > ul > li > a > div.content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 70%;
-}
-
-section.feed-list > ul > li > a > div.content > h2 {
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
-}
-
-section.feed-list > ul > li > a > div.content > p {
-  font-size: 1.125rem;
-  text-align: justify;
+@media (max-width: 480px) {
+  section.feed-list > ul {
+    gap: 1.5rem;
+  }
 }
