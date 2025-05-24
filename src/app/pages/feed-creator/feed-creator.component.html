@@ -4,7 +4,7 @@
   <section>
     <h2><span>Create</span> Feed</h2>
 
-    <form action="">
+    <form>
       <div class="input-container">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" placeholder="What's the title?" [(ngModel)]="formData.title.value"/>
@@ -108,7 +108,7 @@
         >Add Quiz</button>
       </div>
 
-      <button type="button" (click)="createFeed()">Create Feed</button>
+      <button type="button" (click)="createFeed()" [disabled]="!isCompleted">Create Feed</button>
     </form>
   </section>
 

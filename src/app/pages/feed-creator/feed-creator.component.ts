@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { resultsModel } from './models/results';
 import { quizesModel } from './models/quizes';
 import { FeedDataCacheService } from '../../feed-data-cache.service';
+import { formDataDefaultValues } from './models/formDataDefaultValues';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feed-creator',
@@ -21,33 +23,21 @@ import { FeedDataCacheService } from '../../feed-data-cache.service';
     InputComponent, 
     SelectComponent,
     FormsModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './feed-creator.component.html',
   styleUrl: './feed-creator.component.css'
 })
 export class FeedCreatorComponent {
-  formData = {
-    title: { value: '' },
-    description: { value: '' },
-    results: [
-      { value: '' },
-      { value: '' },
-    ],
-    quizes: [
-      { title: { value: ''},
-        options: [
-          { value: '', resultSelected: ''},
-          { value: '', resultSelected: ''},
-        ]
-      }
-    ]
-  }
+  formData = formDataDefaultValues
 
   resultModels = resultsModel
   quizesModels = quizesModel
 
-  constructor(private feedDataCacheService: FeedDataCacheService) {}
+  isCompleted = false
+  showMessage = false
+
+  constructor(private feedDataCacheService: FeedDataCacheService, private router: Router) {}
 
   getResults() {
     return this.formData.results.map(({value}) => value)
@@ -74,6 +64,7 @@ export class FeedCreatorComponent {
         }
       }
     }
+    this.checkValues()
   }
 
   AddComponent(local: 'results' | 'quizes' | 'options', quizIndex?: number) {
@@ -107,6 +98,7 @@ export class FeedCreatorComponent {
       default:
         throw Error('Cannot add component')
     }
+    this.checkValues()
   }
 
   RemoveComponent(local: 'results' | 'quizes' | 'options', quizIndex?: number) {
@@ -125,16 +117,26 @@ export class FeedCreatorComponent {
       default:
         throw Error('Cannot add component')
     }
+    this.checkValues()
   }
 
   createFeed() {
-    if((this.formData.description.value && this.formData.title.value) && this.checkValues()) {
+    this.checkValues()
+
+    if(this.isCompleted) {
       this.feedDataCacheService.addFormData(this.formData)
+      this.isCompleted = false
+      this.showMessage = true
+      setInterval(() => {
+        this.router.navigate(['/'])
+      }, 500);
     }
   }
 
   checkValues() {
     let hasValue = true
+
+    if(!this.formData.title.value || !this.formData.description.value) hasValue = false
 
     for(let i = 0; i < this.formData.quizes.length; i++) {
       if(!hasValue) break
@@ -156,9 +158,11 @@ export class FeedCreatorComponent {
     }
 
     if(hasValue) {
+      this.isCompleted = true
       return true
     }
 
+    this.isCompleted = false
     return false
   }
 }
