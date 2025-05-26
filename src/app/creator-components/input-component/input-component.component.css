@@ -7,7 +7,7 @@ div {
 div > div.input {
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 36rem;
 }
 
 div > div > label {
@@ -38,4 +38,34 @@ div > div.close-button-div {
 
 div > div.close-button-div > button {
   cursor: pointer;
+}
+
+@media (max-width: 830px) {
+  div > div.input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 728px) {
+  div > div > label {
+    font-size: 1.125rem;
+  }
+
+  div > div > input {
+    font-size: 1rem;
+  }
+
+  div > div > input:focus {
+    outline: 1px var(--light-yellow) solid;
+  }
+}
+
+@media (max-width: 480px) {
+  div > div > label {
+    font-size: 0.9375rem;
+  }
+
+  div > div > input {
+    font-size: 0.8125rem;
+  }
 }

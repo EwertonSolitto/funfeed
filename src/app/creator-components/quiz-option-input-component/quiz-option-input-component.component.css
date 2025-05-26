@@ -25,3 +25,31 @@ div > input:focus {
   outline: 2px var(--light-yellow) solid;
   border-radius: 0.25rem;
 }
+
+@media (max-width: 830px) {
+  div > input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 728px) {
+  div > label {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
+  div > input {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  div > label {
+    font-size: 0.9375rem;
+    margin-bottom: 0.5rem;
+  }
+
+  div > input {
+    font-size: 0.8125rem;
+  }
+}
