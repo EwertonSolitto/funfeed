@@ -58,8 +58,15 @@ export class FeedComponent {
   }
 
   setPoint(): void {
-    if(this.optionList && this.currentValueSelected !== null) {
-      this.optionList[this.currentValueSelected].points++
+    if(this.optionList) {
+      const resultIndex = this.optionList.findIndex(({result}) => {
+        if(this.currentValueSelected !== null) {
+          return result.value === this.currentQuestion?.options[this.currentValueSelected].resultSelected
+        }
+        return false
+      }) 
+
+      this.optionList[resultIndex].points++
     }
   }
 
@@ -73,9 +80,9 @@ export class FeedComponent {
   }
 
   nextQuestion(): void {
+    this.setPoint()
     this.questionCounter++
     this.currentQuestion = this.feed?.quizes[this.questionCounter]
-    this.setPoint()
     this.currentValueSelected = null
 
     if(this.feed?.quizes) {
