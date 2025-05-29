@@ -1,6 +1,6 @@
 <section class="feed-list">
   <ul>
-    <li *ngFor="let feed of cachedFormDataList; index as i">
+    <li *ngFor="let feed of filteredFormDataList; index as i">
       <app-feed-card [props]="{id: i, title: feed.title.value, description: feed.description.value}"></app-feed-card>
     </li>
   </ul>

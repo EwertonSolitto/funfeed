@@ -11,5 +11,13 @@ import { FooterComponent } from '../../footer/footer.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  search = ''
 
+  handleSearch(newValue: string) {
+    this.search = newValue
+  }
+
+  getSearch() {
+    console.log(this.search)
+  }
 }

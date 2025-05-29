@@ -1,6 +1,6 @@
 <div>
   <app-header></app-header>
-  <app-menu></app-menu>
-  <app-feed-list></app-feed-list>
+  <app-menu (changeValue)="handleSearch($event)" [ngValue]="search"></app-menu>
+  <app-feed-list [searchValue]="search"></app-feed-list>
   <app-footer></app-footer>
 </div>
